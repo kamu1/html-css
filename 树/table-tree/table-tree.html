@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>table-tree</title>
+    	<link href="./table-tree.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="table-tree">
+			<ul>
+				<li>
+					<div>
+						<span>分类</span>
+						<div class="head-title"><span>数据</span></div>
+					</div>
+				</li>
+				<li>
+					<label for="id0"></label>
+					<input type="checkbox" id="id0">
+					<div>
+						<span>2016年</span>
+						<div><span>数据1</span><span>数据2</span></div>
+					</div>
+					<ul>
+						<li>
+							<label for="id1"></label>
+							<input type="checkbox" id="id1">
+							<div>
+								<span>春</span>
+								<div><span>春数据1</span><span>春数据2</span></div>
+							</div>
+							<ul>
+								<li>
+									<div>
+										<span>L</span>
+										<div><span>数据1</span><span>数据2</span></div>
+									</div>
+								</li>
+								<li>
+									<label for="id2"></label>
+									<input type="checkbox" id="id2">
+									<div>
+										<span>XL</span>
+										<div><span>数据1</span><span>数据2</span></div>
+									</div>
+									<ul>
+										<li>
+											<div>
+												<span>S</span>
+												<div><span>数据1</span><span>数据2</span></div>
+											</div>
+										</li>
+										<li>
+											<div>
+												<span>M</span>
+												<div><span>数据1</span><span>数据2</span></div>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<label for="id3"></label>
+							<input type="checkbox" id="id3">
+							<div>
+								<span>夏</span>
+								<div><span>数据1</span><span>数据2</span></div>
+							</div>
+							<ul>
+								<li>
+									<div>
+										<span>S</span>
+										<div><span>数据1</span><span>数据2</span></div>
+									</div>
+								</li>
+								<li>
+									<div>
+										<span>M</span>
+										<div><span>数据1</span><span>数据2</span></div>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<label for="id4"></label>
+					<input type="checkbox" id="id4">
+					<div>
+						<span>2017年</span>
+						<div><span>2017数据1</span><span>2017数据2</span></div>
+					</div>
+					<ul>
+						<li>
+							<div>
+								<span>S</span>
+								<div><span>数据1</span><span>数据2</span></div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			/*$("label").each(function(i){
+				$(this).attr("for","id"+i).next("input").attr("id","id"+i)
+			})*/
+		</script>
+	</body>
+</html>

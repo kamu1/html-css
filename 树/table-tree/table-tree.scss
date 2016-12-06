@@ -1,0 +1,137 @@
+//临时写的一些样式，比如要新建一个页面，需要先写好样式，可以写到这里，再复制到相应建立好的页面
+
+//树样式
+$firstRowColor:#f6f6f6;
+$hoveBackgroundColor:#f9f9f9;
+$borderColor:#ddd;
+$triangleColor:#999;
+$cellWidth:150px;
+$cellHeight:30px;
+.table-tree{
+    *{box-sizing: border-box;}
+    >ul{
+        border:1px solid $borderColor;
+        overflow: hidden;
+        >li{
+            >div{
+                &:before{
+                    background: $firstRowColor !important;
+                }
+            }
+            &:first-child{
+                >div{
+                    height:40px; 
+                    &:before{
+                        box-shadow:10em 10em 10em rgba(0,0,0,.03) inset;
+                        border-top:none;
+                        height: 40px !important;
+                    }
+                    >*{
+                        line-height: 40px !important;
+                    }
+                }
+            }
+        }
+    }
+    ol,ul{
+        padding:0;
+        margin:0;
+        list-style:none;
+        li{
+            padding-left: 1em;
+            position: relative;
+            >label{
+                -moz-user-select: none;
+                -ms-user-select:none;
+                -webkit-user-select: none;
+                user-select:none;
+                position: absolute;
+                top:$cellHeight/5;
+                left:1em;
+                z-index: 2;
+                display: inline-block;
+                height:16px;
+                width:16px;
+                cursor: pointer;
+                //background: rgba(0,0,0,.5);
+            }
+            >ul{
+                &:before{
+                    content: "";
+                    position: absolute;
+                    top:$cellHeight/3.3;
+                    left:1.4em;
+                    border:5px solid transparent;
+                    border-left-color: $triangleColor;
+                }
+                >li{
+                    display: none;
+                }
+            }
+            //标题格样式
+            >div{
+                line-height: $cellHeight;
+                overflow: hidden;
+                border-top:0;
+                &:before{
+                    content: "";
+                    position: absolute;
+                    left:-20%;
+                    width:130%;
+                    height: $cellHeight;
+                    border-top:1px solid $borderColor;
+                }
+                &:hover{
+                    &:before{
+                        background: $hoveBackgroundColor;
+                    }
+                }
+                >*{
+                    position: relative;
+                    z-index: 1;
+                    float: right;
+                    padding: 0 5px;
+                    text-align: center;
+                    &:first-child{
+                        float: left;
+                        padding:0;
+                        margin-left: 1.5em;
+                        text-align: left;
+                        +*{
+                            overflow: hidden;
+                            >*{
+                                border-left:1px solid $borderColor;
+                                float: left;
+                                width: $cellWidth;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            &.head-title{
+                                >*{
+                                    width:$cellWidth*2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            input{
+                display: none;
+                &:checked{
+                    &~ul{
+                        &:before{
+                            border-left-color: transparent;
+                            border-top-color: $triangleColor;
+                            top:12px;
+                            left:1.2em;
+                        }
+                        >li{
+                            display: list-item;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
