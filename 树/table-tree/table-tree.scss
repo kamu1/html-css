@@ -54,6 +54,14 @@ $cellHeight:30px;
                 width:16px;
                 cursor: pointer;
                 //background: rgba(0,0,0,.5);
+                //鼠标移到label上也要显示行背景
+                &:hover{
+                    &~div{
+                     &:before{
+                         background: $hoveBackgroundColor;
+                     }   
+                    }
+                }
             }
             >ul{
                 &:before{
