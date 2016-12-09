@@ -5,9 +5,15 @@ $firstRowColor:#f6f6f6;
 $hoveBackgroundColor:#f9f9f9;
 $borderColor:#ddd;
 $triangleColor:#999;
-$cellWidth:150px;
+$dataWidth:900px;
+$cellWidth:8.33%;
 $cellHeight:30px;
+$triangleTop:11px;
 .table-tree{
+    font-family: "微软雅黑";
+    font-size: 13px;
+    min-width: 1100px;
+    margin: auto;
     *{box-sizing: border-box;}
     >ul{
         border:1px solid $borderColor;
@@ -54,20 +60,12 @@ $cellHeight:30px;
                 width:16px;
                 cursor: pointer;
                 //background: rgba(0,0,0,.5);
-                //鼠标移到label上也要显示行背景
-                &:hover{
-                    &~div{
-                     &:before{
-                         background: $hoveBackgroundColor;
-                     }   
-                    }
-                }
             }
             >ul{
                 &:before{
                     content: "";
                     position: absolute;
-                    top:$cellHeight/3.3;
+                    top:$triangleTop;
                     left:1.4em;
                     border:5px solid transparent;
                     border-left-color: $triangleColor;
@@ -88,7 +86,6 @@ $cellHeight:30px;
                     width:130%;
                     height: $cellHeight;
                     border-top:1px solid $borderColor;
-                    transition-duration:200ms;
                 }
                 &:hover{
                     &:before{
@@ -102,11 +99,13 @@ $cellHeight:30px;
                     padding: 0 5px;
                     text-align: center;
                     &:first-child{
+                        position: absolute;
                         float: left;
                         padding:0;
                         margin-left: 1.5em;
                         text-align: left;
                         +*{
+                            width:$dataWidth;
                             overflow: hidden;
                             >*{
                                 border-left:1px solid $borderColor;
@@ -115,6 +114,19 @@ $cellHeight:30px;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
                                 white-space: nowrap;
+                                padding:0 10px;
+                                &.c-num{
+                                    &:after{
+                                        content: "件";
+                                    }
+                                }
+                                &.c-price{
+                                    color:#D4282D;
+                                    text-align:right; 
+                                    &:before{
+                                        content: "￥";
+                                    }
+                                }
                             }
                             &.head-title{
                                 >*{
