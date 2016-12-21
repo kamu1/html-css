@@ -1,51 +1,62 @@
-            label.switch{
-                display: inline-block;
-                line-height: 1em;
-                >*{
-                    vertical-align: middle;
-                    display: inline-block;
-                }
-                >input{
-                    display: none;
-                    &+*{
-                        position: relative;
-                        display:inline-block;
-                        vertical-align: top;
-                        background-color: #ddd;
-                        border:1px solid #ddd;
-                        width:2em;
-                        height:1em;
-                        border-radius:1em;
-                        overflow: hidden;
-                        cursor: pointer;
-                        transition-duration: 200ms;
-                        &>*{
-                            position: absolute;
-                            top:0;
-                            left:0%;
-                            width:1em;
-                            height: 100%;
-                            background: #999;
-                            border-radius: 1em;
-                            transition-duration: 200ms;
-                        }
-                        /*控制显示关字样*/
-                        &+*:before{
-                            content: attr(data-off);
-                        }
-                    }
-                    &:checked+*{
-                        background: green;
-                        border:1px solid green;
-                        &>*{
-                            left:100%;
-                            margin-left: -1em;
-                            background: #eee;
-                        }
-                        /*显示开字样*/
-                        &+*:before{
-                            content: attr(data-on);
-                        }
-                    }
-                }
+$offBackground:#DDD;
+$offBlockBackground:#999;
+$onBackground:green;
+$onBlockBackground:#eee;
+$switchHeight:30px;
+$switchWidth:60px;
+$borderWidth:2px;
+label.switch{
+    display: inline-block;
+    line-height: $switchHeight;
+    *{
+        box-sizing: border-box;
+    }
+    >*{
+        vertical-align: middle;
+        display: inline-block;
+    }
+    >input{
+        display: none;
+        &+*{
+            position: relative;
+            display:inline-block;
+            vertical-align: top;
+            background-color: $offBackground;
+//          border:$borderWidth solid $offBackground;
+            width:$switchWidth;
+            height:$switchHeight;
+            border-radius:$switchHeight;
+            overflow: hidden;
+            cursor: pointer;
+            transition-duration: 200ms;
+            &>*{
+                position: absolute;
+                top:0;
+                left:0%;
+                width:$switchHeight;
+                height: 100%;
+                background: $offBlockBackground;
+                border:$borderWidth solid $offBackground;
+                border-radius: 50%;
+                transition-duration: 200ms;
             }
+            /*控制显示关字样*/
+            &+*:before{
+                content: attr(data-off);
+            }
+        }
+        &:checked+*{
+            background: $onBackground;
+            &>*{
+                left:100%;
+                margin-left: -$switchHeight;
+                background: $onBlockBackground;
+                border-color: $onBackground;
+            }
+            /*显示开字样*/
+            &+*:before{
+                content: attr(data-on);
+            }
+        }
+    }
+}
