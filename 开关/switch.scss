@@ -1,0 +1,51 @@
+            label.switch{
+                display: inline-block;
+                line-height: 1em;
+                >*{
+                    vertical-align: middle;
+                    display: inline-block;
+                }
+                >input{
+                    display: none;
+                    &+*{
+                        position: relative;
+                        display:inline-block;
+                        vertical-align: top;
+                        background-color: #ddd;
+                        border:1px solid #ddd;
+                        width:2em;
+                        height:1em;
+                        border-radius:1em;
+                        overflow: hidden;
+                        cursor: pointer;
+                        transition-duration: 200ms;
+                        &>*{
+                            position: absolute;
+                            top:0;
+                            left:0%;
+                            width:1em;
+                            height: 100%;
+                            background: #999;
+                            border-radius: 1em;
+                            transition-duration: 200ms;
+                        }
+                        /*控制显示关字样*/
+                        &+*:before{
+                            content: attr(data-off);
+                        }
+                    }
+                    &:checked+*{
+                        background: green;
+                        border:1px solid green;
+                        &>*{
+                            left:100%;
+                            margin-left: -1em;
+                            background: #eee;
+                        }
+                        /*显示开字样*/
+                        &+*:before{
+                            content: attr(data-on);
+                        }
+                    }
+                }
+            }
