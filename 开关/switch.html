@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS开关</title>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+		<script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			label.switch{
+				display: inline-block;
+				line-height: 1em;
+			}
+			label.switch>*{
+				vertical-align: middle;
+				display: inline-block;
+			}
+			label.switch>input{
+				display: none;
+			}
+			label.switch>input+*{
+				position: relative;
+				display:inline-block;
+				vertical-align: top;
+				background-color: #ddd;
+				border:1px solid #ddd;
+				width:2em;
+				height:1em;
+				border-radius:1em;
+				overflow: hidden;
+				cursor: pointer;
+				transition-duration: 200ms;
+			}
+			label.switch>input+*>*{
+				position: absolute;
+				top:0;
+				left:0%;
+				width:1em;
+				height: 100%;
+				background: #999;
+				border-radius: 1em;
+				transition-duration: 200ms;
+			}
+			label.switch>input:checked+*{
+				background: green;
+				border:1px solid green;
+			}
+			label.switch>input:checked+*>*{
+				left:100%;
+				margin-left: -1em;
+				background: #eee;
+			}
+			/*控制开关*/
+			label.switch>input+*+*:before{
+				content: attr(data-off);
+			}
+			label.switch>input:checked+*+*:before{
+				content: attr(data-on);
+			}
+		</style>
+	</head>
+	<body>
+	<label class="switch">
+		<input type="checkbox" name="" id="" />
+		<div>
+			<span></span>
+		</div>
+		<span data-off="关" data-on="开"></span>
+	</label>
+	</body>
+</html>
